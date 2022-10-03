@@ -8,13 +8,10 @@ def homepage():
     # return render_template("index.html")
     return 'A API está no ara' 
 
-@app.route('/webhooks/<mode>/<challenge>/<verify_token>', methods=['GET'])
-def webhooks(mode,challenge,verify_token):
+@app.route('/webhooks/<mode>', methods=['GET'])
+def webhooks(mode):
 
-    if(verify_token == "meatyhamhock"): 
-        return challenge
-    else:    
-       return NULL
+   return mode
 
 # rodar a api
 #app.run(debug=True, port=8080)
