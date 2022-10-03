@@ -17,4 +17,4 @@ def webhooks(mode,challenge,verify_token):
        return NULL
 
 # rodar a api
-app.run(debug=True, port=8080)
+#app.run(debug=True, port=8080)
