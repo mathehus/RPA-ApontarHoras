@@ -21,5 +21,3 @@ def webhooksPost():
     print(jsonify(_json))
     return "200"
 
-# rodar a api
-app.run(debug=True, port=8080)    
