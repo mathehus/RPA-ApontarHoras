@@ -17,6 +17,7 @@ def webhooks():
 
 @app.route('/webhooks', methods=['POST'])
 def webhooksPost():
+    print("ENTROU LUISÃO")
     _json = request.json
     print(jsonify(_json))
     return "200"
