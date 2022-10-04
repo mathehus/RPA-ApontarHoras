@@ -16,7 +16,10 @@ def webhooks():
     return challenge
 
 @app.route('/webhooks', methods=['POST'])
-def webhooks():
+def webhooksPost():
     _json = request.json
     print(jsonify(_json))
     return "200"
+
+# rodar a api
+app.run(debug=True, port=8080)    
