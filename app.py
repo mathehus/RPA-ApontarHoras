@@ -19,6 +19,7 @@ def webhooks():
 def webhooksPost():
     print("ENTROU LUISÃO")
     _json = request.json
-    print(jsonify(_json))
+    print(request)
+    print(_json)
     return "200"
 
