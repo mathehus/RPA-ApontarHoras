@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request,jsonify
 
 app = Flask(__name__)
 
@@ -15,3 +15,8 @@ def webhooks():
 
     return challenge
 
+@app.route('/webhooks', methods=['POST'])
+def webhooks():
+    _json = request.json
+    print(jsonify(_json))
+    return "200"
