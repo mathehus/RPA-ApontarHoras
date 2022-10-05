@@ -19,12 +19,13 @@ def webhooks():
 
 @app.route('/webhooks', methods=['POST'])
 def webhooksPost():
-    _json = request
+    _json = request.json
     try:
-        menssagem = request['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
+        menssagem = _json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
 
         if menssagem == 'Apontar Horas':
             chamar = "robo"
+            print("robo")
             #Validar campos
             return "200"
         else:
@@ -69,6 +70,7 @@ def webhooksPost():
          #mandar erro pro wpp  
 
 
-   
+
+
    
 
