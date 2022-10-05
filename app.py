@@ -47,6 +47,7 @@ def webhooksPost():
             }
             
             response = requests.post(url, headers=headers, json=data)
+            print("500")
             return "500"
     except:
         url = "https://graph.facebook.com/v14.0/101101909440708/messages"
@@ -66,6 +67,7 @@ def webhooksPost():
         }
 
         response = requests.post(url, headers=headers, json=data)
+        print("500")
         return "500"
          #mandar erro pro wpp  
 
