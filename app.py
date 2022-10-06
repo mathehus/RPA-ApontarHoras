@@ -46,7 +46,7 @@ def webhooksPost():
                 }
             }
             
-            response = requests.post(url, headers=headers, json=data)
+           # response = requests.post(url, headers=headers, json=data)
             print("500")
             return "500"
     
