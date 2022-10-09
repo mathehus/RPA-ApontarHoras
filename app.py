@@ -12,7 +12,8 @@ def homepage():
 @app.route('/webhooks', methods=['POST'])
 def webhooksPost():
     _json = request.json
-    if( _json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']):
+    print(_json)
+    if(_json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']):
         try:
             menssagem = _json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
 
