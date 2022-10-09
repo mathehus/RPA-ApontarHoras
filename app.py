@@ -9,14 +9,78 @@ def homepage():
     # return render_template("index.html")
     return 'A API está no ara' 
 
-
 @app.route('/webhooks', methods=['POST'])
 def webhooksPost():
     _json = request.json
+    if( _json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']):
+        try:
+            menssagem = _json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
 
-    print(_json)
-    return "200"
+            if menssagem == 'Apontar Horas':
+               
+                url = "https://graph.facebook.com/v14.0/101101909440708/messages"
+                
+                headers = {"Content-Type": "application/json; charset=utf-8", "Authorization" : "Bearer EAALVmdug7uMBAPfV18nvkifWp3vpWQ8LfQ6rjdBFrOd0xTfDjaZArIrdzi97emmuX30q8ANr1SdCZAoKlqTLGRqNkZCKiNel7ZCofnfm1fR6TljzX7LmjFLpB6jgPMa4ZCC2HjWKr8nv4kES97y6HEAc4Atz4imUE5mV28nZCEJQ1IuxM2dnXR"}
+                
+                data = {
+                    "messaging_product": "whatsapp",
+                    "to": "5511962583347",
+                    "type": "template",
+                    "template": {
+                        "name": "sucesso",
+                        "language": {
+                        "code": "pt_BR"
+                        }
+                    }
+                }
+                
+                response = requests.post(url, headers=headers, json=data)
 
+                #Validar campos
+                return "200"
+            else:
+                
+                url = "https://graph.facebook.com/v14.0/101101909440708/messages"
+                
+                headers = {"Content-Type": "application/json; charset=utf-8", "Authorization" : "Bearer EAALVmdug7uMBAPfV18nvkifWp3vpWQ8LfQ6rjdBFrOd0xTfDjaZArIrdzi97emmuX30q8ANr1SdCZAoKlqTLGRqNkZCKiNel7ZCofnfm1fR6TljzX7LmjFLpB6jgPMa4ZCC2HjWKr8nv4kES97y6HEAc4Atz4imUE5mV28nZCEJQ1IuxM2dnXR"}
+                
+                data = {
+                    "messaging_product": "whatsapp",
+                    "to": "5511962583347",
+                    "type": "template",
+                    "template": {
+                        "name": "error",
+                        "language": {
+                        "code": "pt_BR"
+                        }
+                    }
+                }
+                
+                response = requests.post(url, headers=headers, json=data)
+                return "500"
+                  #mandar erro pro wpp  
+        except:
+            url = "https://graph.facebook.com/v14.0/101101909440708/messages"
+                
+            headers = {"Content-Type": "application/json; charset=utf-8", "Authorization" : "Bearer EAALVmdug7uMBAPfV18nvkifWp3vpWQ8LfQ6rjdBFrOd0xTfDjaZArIrdzi97emmuX30q8ANr1SdCZAoKlqTLGRqNkZCKiNel7ZCofnfm1fR6TljzX7LmjFLpB6jgPMa4ZCC2HjWKr8nv4kES97y6HEAc4Atz4imUE5mV28nZCEJQ1IuxM2dnXR"}
+                
+            data = {
+                "messaging_product": "whatsapp",
+                "to": "5511962583347",
+                "type": "template",
+                "template": {
+                    "name": "error",
+                    "language": {
+                    "code": "pt_BR"
+                    }
+                }
+            }
+
+            response = requests.post(url, headers=headers, json=data)
+            return "500"
+            #mandar erro pro wpp  
+    else:
+         return "500"
 
 
 
