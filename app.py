@@ -9,13 +9,6 @@ def homepage():
     # return render_template("index.html")
     return 'A API está no ara' 
 
-@app.route('/webhooks', methods=['GET'])
-def webhooks():
-    mode = request.args.get('hub.mode')
-    challenge = request.args.get('hub.challenge')
-    verify_token = request.args.get('hub.verify_token')
-
-    return challenge
 
 @app.route('/webhooks', methods=['POST'])
 def webhooksPost():
