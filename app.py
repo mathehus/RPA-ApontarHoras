@@ -13,7 +13,7 @@ def homepage():
 def webhooksPost():
     _json = request.json
     print(_json)
-    if(_json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']):
+    if(_json['entry'][0]['changes'][0]['value']['messages']):
         try:
             menssagem = _json['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
 
