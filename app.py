@@ -13,8 +13,9 @@ def robo(arrayMenssagem):
     
         email = arrayMenssagem[0]
         senha = arrayMenssagem[1]
-
+        print("CHAMOU O CROME")
         driver = webdriver.Chrome()
+        print("ABRIU O CROME")
          #logando
         driver.get('https://app.onergy.com.br/')
         time.sleep(3)
