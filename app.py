@@ -2,8 +2,6 @@ from flask import Flask,request,jsonify
 import requests
 import json
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
@@ -12,13 +10,13 @@ from selenium.webdriver.common.keys import Keys
 app = Flask(__name__)
 
 def robo(arrayMenssagem):
-    try:
+    
         email = arrayMenssagem[0]
         senha = arrayMenssagem[1]
-        print("CHEGOU")
-        driver = webdriver.Chrome(service=ChromeService(executable_path=ChromeDriverManager().install()))
-        print("abriu")
-        #logando
+        print("CHAMOU O CROME")
+        driver = webdriver.Chrome()
+        print("ABRIU O CROME")
+         #logando
         driver.get('https://app.onergy.com.br/')
         time.sleep(3)
         driver.find_element('name', 'login').send_keys(email)
@@ -73,8 +71,8 @@ def robo(arrayMenssagem):
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
         time.sleep(3)
         return "200"
-    except: 
-        return "500"
+    
+        
 
 def introducaoRobo(menssagem):
     retorno = "500"
@@ -214,7 +212,3 @@ def webhooksPost():
             return "500"
     except:
         return "500"
-
-
-
- 
