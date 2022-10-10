@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 app = Flask(__name__)
 
 def robo(arrayMenssagem):
-    try:
+    
         email = arrayMenssagem[0]
         senha = arrayMenssagem[1]
 
@@ -70,8 +70,8 @@ def robo(arrayMenssagem):
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
         time.sleep(3)
         return "200"
-    except: 
-        return "500"
+    
+        
 
 def introducaoRobo(menssagem):
     retorno = "500"
