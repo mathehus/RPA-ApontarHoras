@@ -13,7 +13,7 @@ def robo(arrayMenssagem):
     try:
         email = arrayMenssagem[0]
         senha = arrayMenssagem[1]
-        print("chamou o crome")
+      
         op = webdriver.ChromeOptions()
         op.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
         op.add_argument("--headless")
@@ -21,7 +21,7 @@ def robo(arrayMenssagem):
         op.add_argument("--disable-dev-sh-usage")
         
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
-        print("ABRIU")
+    
 
         #logando
         driver.get('https://app.onergy.com.br/')
@@ -79,6 +79,7 @@ def robo(arrayMenssagem):
         time.sleep(3)
         return "200"
     except: 
+        print("robo except")
         return "500"
 
 def introducaoRobo(menssagem):
@@ -91,6 +92,7 @@ def introducaoRobo(menssagem):
             retorno = "200"
         return retorno
     except:
+        print("introducaoRobo except")
         return retorno
 
    
@@ -148,6 +150,7 @@ def webhooksPost():
                                 }
                             }
                         }
+                        print("IF FINAL robo except")
 
                     response = requests.post(url, headers=headers, json=data)
 
@@ -211,7 +214,7 @@ def webhooksPost():
                         }
                     }
                 }
-
+                print("excpet principal de não localizou caminho")
                 response = requests.post(url, headers=headers, json=data)
                 return "500"
                 #mandar erro pro wpp  
