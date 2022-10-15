@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 
 def robo(arrayMenssagem):
-    try:
+  
         email = arrayMenssagem[0]
         senha = arrayMenssagem[1]
       
@@ -80,9 +80,7 @@ def robo(arrayMenssagem):
         print("apontou")
         return "200"
         
-    except: 
-        print("robo except")
-        return "500"
+   
 
 def introducaoRobo(menssagem):
     retorno = "500"
