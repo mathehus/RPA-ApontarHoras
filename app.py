@@ -77,7 +77,7 @@ def robo(arrayMenssagem):
         #Save do Registro
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
         time.sleep(3)
-        print("apontou)
+        print("apontou")
         return "200"
         
     except: 
