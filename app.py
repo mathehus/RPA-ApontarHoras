@@ -77,7 +77,9 @@ def robo(arrayMenssagem):
         #Save do Registro
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
         time.sleep(3)
+        print("apontou)
         return "200"
+        
     except: 
         print("robo except")
         return "500"
@@ -133,6 +135,10 @@ def webhooksPost():
                                 }
                             }
                         }
+              
+                        response = requests.post(url, headers=headers, json=data)
+                        print("200")
+                        return "200"
                     else:
 
                         url = "https://graph.facebook.com/v14.0/101101909440708/messages"
@@ -150,12 +156,12 @@ def webhooksPost():
                                 }
                             }
                         }
-                        print("IF FINAL robo except")
+                        print("ELSE DO 200")
+                        
+                        response = requests.post(url, headers=headers, json=data)
+                        
+                        return "200"
 
-                    response = requests.post(url, headers=headers, json=data)
-
-                    #Validar campos
-                    return "200"
                 elif(menssagem == "Help"):
 
                     url = "https://graph.facebook.com/v14.0/101101909440708/messages"
