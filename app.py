@@ -10,6 +10,7 @@ import os
 app = Flask(__name__)
 
 def robo(arrayMenssagem):
+    try:
         email = arrayMenssagem[0]
         senha = arrayMenssagem[1]
       
@@ -76,9 +77,10 @@ def robo(arrayMenssagem):
         #Save do Registro
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
         time.sleep(3)
-        print("finalizou apontamento")
         return "200"
-  
+    except: 
+        print("robo except")
+        return "500"
 
 def introducaoRobo(menssagem):
     retorno = "500"
@@ -131,8 +133,6 @@ def webhooksPost():
                                 }
                             }
                         }
-
-                        response = requests.post(url, headers=headers, json=data)
                     else:
 
                         url = "https://graph.facebook.com/v14.0/101101909440708/messages"
@@ -150,9 +150,12 @@ def webhooksPost():
                                 }
                             }
                         }
-                        print("robo não mandou 200")
+                        print("IF FINAL robo except")
 
-                        response = requests.post(url, headers=headers, json=data)
+                    response = requests.post(url, headers=headers, json=data)
+
+                    #Validar campos
+                    return "200"
                 elif(menssagem == "Help"):
 
                     url = "https://graph.facebook.com/v14.0/101101909440708/messages"
@@ -171,7 +174,9 @@ def webhooksPost():
                         }
                     }
                     
-                    response = requests.post(url, headers=headers, json=data) 
+                    response = requests.post(url, headers=headers, json=data)
+                    return "500"
+                    #mandar erro pro wpp    
                 else:
                     url = "https://graph.facebook.com/v14.0/101101909440708/messages"
                     
@@ -216,6 +221,4 @@ def webhooksPost():
             return "500"
     except:
         return "500"
-
-
  
