@@ -22,17 +22,17 @@ def robo(arrayMenssagem):
         
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
     
-
+        print("chamou robo")
         #logando
         driver.get('https://app.onergy.com.br/')
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element('name', 'login').send_keys(email)
         driver.find_element('name', 'password').send_keys(senha)
         driver.find_element('xpath', '//*[@id="signUpForm"]/div[2]/div[4]/button').click()
-        time.sleep(3)
+        time.sleep(2)
         #Time Sheet Grid
         driver.get('https://app.onergy.com.br/#/internal-feed/000b8d14-e7c1-4a3f-9c47-0674103fad08/Time-sheet/false/false/form-feed/000b8d14-e7c1-4a3f-9c47-0674103fad08/Time-sheet')
-        time.sleep(3)
+        time.sleep(2)
 
         #Time Sheet prenchendo campos
         data_apontar = arrayMenssagem[2]
@@ -52,19 +52,19 @@ def robo(arrayMenssagem):
         
         #tipo de Atividade REF
         tipoAtividade = driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[5]/app-paged-dropdown/div/ng-select/div/div/div[2]/input').send_keys('Projeto')
-        time.sleep(3)
+        time.sleep(2)
         act.key_down(Keys.CONTROL).send_keys("a").key_up(Keys.CONTROL).perform()
         act.key_down(Keys.ENTER).key_up(Keys.ENTER).perform()
 
         #Área trabalhada(CCusto)
         tipoAtividade = driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[7]/app-paged-dropdown/div/ng-select/div/div/div[2]/input').send_keys('PROJETOS')
-        time.sleep(3)
+        time.sleep(2)
         act.key_down(Keys.CONTROL).send_keys("a").key_up(Keys.CONTROL).perform()
         act.key_down(Keys.ENTER).key_up(Keys.ENTER).perform()
 
         #Projeto 
         tipoAtividade = driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[11]/app-paged-dropdown/div/ng-select/div/div/div[2]/input').send_keys(projeto_apontar)
-        time.sleep(3)
+        time.sleep(2)
         act.key_down(Keys.CONTROL).send_keys("a").key_up(Keys.CONTROL).perform()
         act.key_down(Keys.ENTER).key_up(Keys.ENTER).perform()
 
@@ -76,7 +76,7 @@ def robo(arrayMenssagem):
 
         #Save do Registro
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
-        time.sleep(3)
+        time.sleep(2)
         print("apontou")
         return "200"
         
