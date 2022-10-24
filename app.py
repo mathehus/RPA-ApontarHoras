@@ -9,6 +9,8 @@ import os
 
 app = Flask(__name__)
 
+chaveApontamento = False
+
 def robo(arrayMenssagem):
     try:
         email = arrayMenssagem[0]
@@ -78,6 +80,7 @@ def robo(arrayMenssagem):
         driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[17]/div/div/button[2]').click()
         time.sleep(2)
         print("apontou")
+        chaveApontamento = False
         return "200"
         
     except: 
@@ -116,9 +119,13 @@ def webhooksPost():
                 #teste
                 # menssagem = "matheus.santos@keeptrue.com;Mq210976;01/09/2022;OXITENO;8;0;Desenvolvimento fluxo de NFSE e CTE"
 
+                chaveApontamento = True
                 if menssagem != None and menssagem != "Help" :
-
-                    retornoRobo = introducaoRobo(menssagem)
+                    
+                    retornoRobo = ""
+                    if(chaveApontamento):
+                       retornoRobo = introducaoRobo(menssagem)
+                    
                     if(retornoRobo == "200"):
                         url = "https://graph.facebook.com/v14.0/101101909440708/messages"
                         
