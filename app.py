@@ -81,6 +81,7 @@ def robo(arrayMenssagem):
         time.sleep(2)
         print("apontou")
         chaveApontamento = False
+        driver.quit()
         return "200"
         
     except: 
