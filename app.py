@@ -64,7 +64,7 @@ def robo(arrayMenssagem):
 
         #Projeto 
         tipoAtividade = driver.find_element('xpath', '/html/body/app-root/app-admin/div/div[2]/div/div/div/div/div/div/app-form-feed/div/div/app-card/div/div/div/form/div[11]/app-paged-dropdown/div/ng-select/div/div/div[2]/input').send_keys(projeto_apontar)
-        time.sleep(2)
+        time.sleep(3)
         act.key_down(Keys.CONTROL).send_keys("a").key_up(Keys.CONTROL).perform()
         act.key_down(Keys.ENTER).key_up(Keys.ENTER).perform()
 
