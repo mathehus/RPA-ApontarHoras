@@ -27,14 +27,14 @@ def robo(arrayMenssagem):
         print("chamou robo")
         #logando
         driver.get('https://app.onergy.com.br/')
-        time.sleep(2)
+        time.sleep(3)
         driver.find_element('name', 'login').send_keys(email)
         driver.find_element('name', 'password').send_keys(senha)
         driver.find_element('xpath', '//*[@id="signUpForm"]/div[2]/div[4]/button').click()
         time.sleep(2)
         #Time Sheet Grid
         driver.get('https://app.onergy.com.br/#/internal-feed/000b8d14-e7c1-4a3f-9c47-0674103fad08/Time-sheet/false/false/form-feed/000b8d14-e7c1-4a3f-9c47-0674103fad08/Time-sheet')
-        time.sleep(2)
+        time.sleep(3)
 
         #Time Sheet prenchendo campos
         data_apontar = arrayMenssagem[2]
@@ -81,7 +81,6 @@ def robo(arrayMenssagem):
         time.sleep(2)
         print("apontou")
         chaveApontamento = False
-        driver.quit()
         return "200"
         
     except: 
@@ -170,7 +169,7 @@ def webhooksPost():
                         
                         return "200"
 
-                elif(menssagem == "Help"):
+                elif(menssagem == "Help" || menssagem == "help"):
 
                     url = "https://graph.facebook.com/v14.0/101101909440708/messages"
                     
