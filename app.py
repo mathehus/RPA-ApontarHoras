@@ -169,7 +169,7 @@ def webhooksPost():
                         
                         return "200"
 
-                elif(menssagem == "Help" || menssagem == "help"):
+                elif(menssagem == "Help" or menssagem == "help"):
 
                     url = "https://graph.facebook.com/v14.0/101101909440708/messages"
                     
