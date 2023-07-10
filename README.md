@@ -1,4 +1,6 @@
- *Projeto Time Sheet com RPA em Python e WhatsApp*
+# Apontamento de Horas 
+
+Projeto Time Sheet com RPA em Python e WhatsApp
 
 O projeto Time Sheet com RPA em Python e WhatsApp é uma solução inovadora para simplificar o registro de horas trabalhadas por meio da automação de processos robóticos (RPA) e integração com o aplicativo WhatsApp.
 
